@@ -18,8 +18,8 @@ public class ChooseCharacterWindow  extends  JFrame{
 
     private GridBagConstraints constraints = new GridBagConstraints();
 
-    private JButton chooseCharacterOneBtn = new JButton("CH. 1");
-    private JButton chooseCharacterTwoBtn = new JButton("CH. 2");
+    private JButton chooseCharacterOneBtn = new JButton("HACHAPURIK");
+    private JButton chooseCharacterTwoBtn = new JButton("ZELEBOBA");
 
     private JLabel chooseCharacterLabel = new JLabel("  CHOOSE  A  CHARACTER  ");
     private JLabel newGameLabel = new JLabel("  NEW GAME                     ");
@@ -47,8 +47,8 @@ public class ChooseCharacterWindow  extends  JFrame{
 
     private JPanel characterGridPanel = new JPanel(new GridLayout(2 ,1));
 
-    private JPanel characterOnePanel =  new JPanel(new GridBagLayout());
-    private JPanel characterTwoPanel =  new JPanel(new GridBagLayout());
+    private JPanel characterOnePanel =  new JPanel(new BorderLayout());
+    private JPanel characterTwoPanel =  new JPanel(new BorderLayout());
 
 
     public ChooseCharacterWindow() throws IOException
@@ -74,13 +74,14 @@ public class ChooseCharacterWindow  extends  JFrame{
         chooseCharacterOneBtn.setBackground(new Color(237,52,192));
         chooseCharacterOneBtn.setForeground(Color.WHITE);
         chooseCharacterOneBtn.setFont(new Font("Arial", Font.PLAIN, 20));
-//        chooseCharacterOneBtn.setPreferredSize(new Dimension(205,35));
+        chooseCharacterOneBtn.setPreferredSize(new Dimension(73,25));
 
         chooseCharacterTwoBtn.setOpaque(true);
         chooseCharacterTwoBtn.setBackground(new Color(203,147,24));
         chooseCharacterTwoBtn.setForeground(Color.WHITE);
         chooseCharacterTwoBtn.setFont(new Font("Arial", Font.PLAIN, 20));
-//        chooseCharacterTwoBtn.setPreferredSize(new Dimension(205,35));
+        chooseCharacterTwoBtn.setPreferredSize(new Dimension(73,25));
+
 
         chooseCharacterBtnPanelOne.setBackground(new Color(248,252,116));
         topLabelPanel.setBackground(new Color(248,252,116));
@@ -97,37 +98,19 @@ public class ChooseCharacterWindow  extends  JFrame{
         topLabelPanel.add(chooseCharacterPanel);
 
 
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridheight = 2;
-        characterOnePanel.add(characterOneLabelImage,constraints);
 
+        characterOnePanel.add(characterOneLabelImage, BorderLayout.CENTER);
+        characterOnePanel.add(chooseCharacterOneBtn, BorderLayout.SOUTH);
 
-        chooseCharacterBtnPanelOne.add(chooseCharacterOneBtn);
-        constraints.gridx = 2;
-        constraints.gridy = 2;
-        constraints.gridheight = 1;
-        characterOnePanel.add(chooseCharacterBtnPanelOne,constraints);
-
-
-
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.gridheight = 2;
-        characterTwoPanel.add(characterTwoLabelImage,constraints);
-
-        chooseCharacterBtnPanelTwo.add(chooseCharacterTwoBtn);
-        constraints.gridx = 2;
-        constraints.gridy = 2;
-        constraints.gridheight = 1;
-        characterTwoPanel.add(chooseCharacterBtnPanelTwo,constraints);
+        characterTwoPanel.add(characterTwoLabelImage, BorderLayout.CENTER);
+        characterTwoPanel.add(chooseCharacterTwoBtn, BorderLayout.SOUTH);
 
 
         characterGridPanel.add(characterOnePanel);
         characterGridPanel.add(characterTwoPanel);
 
         mainContainer.add(topLabelPanel,BorderLayout.NORTH);
-        mainContainer.add(characterGridPanel,BorderLayout.WEST);
+        mainContainer.add(characterGridPanel,BorderLayout.CENTER);
 
     }
 }
