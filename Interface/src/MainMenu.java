@@ -1,8 +1,7 @@
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.*;
 
-public class MainMenu extends JFrame{
+public class MainMenu extends JFrame {
 
     private JLabel labelNameWindow = new JLabel("menu");
 
@@ -12,7 +11,7 @@ public class MainMenu extends JFrame{
 
     JPanel panelMenu = new JPanel(new GridLayout(5, 1, 50, 20));
 
-    public MainMenu () {
+    public MainMenu (){
         super("Tamagochi");
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
