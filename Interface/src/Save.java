@@ -1,13 +1,17 @@
-import java.util.Date;;
+import java.time.*;
+
 public class Save {
-    public Save (Date gameStartDate, Date gameSaveDate,String characterName,СharacterState saveProgressValues){
+    public Save (LocalDateTime gameStartDate, LocalDateTime gameSaveDate,String characterName,CharacterState saveProgressValues){
         this.gameStartDate = gameStartDate;
         this.gameSaveDate = gameSaveDate;
         this.characterName = characterName;
         this.saveProgressValues = saveProgressValues;
     }
-    public Date gameStartDate;
-    public Date gameSaveDate;
+    public Save (){
+        saveProgressValues= new CharacterState();
+    }
+    public LocalDateTime gameStartDate;
+    public LocalDateTime gameSaveDate;
     public String characterName;
-    public СharacterState saveProgressValues;
+    public CharacterState saveProgressValues;
 }

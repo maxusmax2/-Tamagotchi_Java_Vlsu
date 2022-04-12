@@ -16,6 +16,7 @@ public class MainMenu extends JFrame {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setBounds(100,100,400,560);
+        this.setResizable(false);
 
         Container containerMenu = this.getContentPane();
         containerMenu.setLayout(new BorderLayout(40,80));
