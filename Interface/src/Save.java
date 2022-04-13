@@ -1,6 +1,6 @@
 import java.util.Date;;
 public class Save {
-    public Save (Date gameStartDate, Date gameSaveDate,String characterName,СharacterState saveProgressValues){
+    public Save (Date gameStartDate, Date gameSaveDate,String characterName,CharacterState saveProgressValues){
         this.gameStartDate = gameStartDate;
         this.gameSaveDate = gameSaveDate;
         this.characterName = characterName;
@@ -9,5 +9,5 @@ public class Save {
     public Date gameStartDate;
     public Date gameSaveDate;
     public String characterName;
-    public СharacterState saveProgressValues;
+    public CharacterState saveProgressValues;
 }
