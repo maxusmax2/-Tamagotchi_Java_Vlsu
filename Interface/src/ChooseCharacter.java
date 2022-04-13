@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class ChooseCharacter  extends  JFrame{
 
-    private JButton chooseCharacterOneBtn = new JButton("HACHAPURIK");
-    private JButton chooseCharacterTwoBtn = new JButton("ZELEBOBA");
+    public JButton chooseCharacterOneBtn = new JButton("HACHAPURIK");
+    public JButton chooseCharacterTwoBtn = new JButton("ZELEBOBA");
 
 
     private JLabel chooseCharacterLabel = new JLabel("  CHOOSE  A  CHARACTER  ");
