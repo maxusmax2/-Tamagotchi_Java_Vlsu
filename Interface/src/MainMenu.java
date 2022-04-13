@@ -5,9 +5,9 @@ public class MainMenu extends JFrame {
 
     private JLabel labelNameWindow = new JLabel("menu");
 
-    private JButton buttonNewGame = new JButton("NEW GAME");
-    private JButton buttonContinue = new JButton("CONTINUE");
-    private JButton buttonSave = new JButton("SAVE");
+    public JButton buttonNewGame = new JButton("NEW GAME");
+    public JButton buttonContinue = new JButton("CONTINUE");
+    public JButton buttonSave = new JButton("SAVE");
 
     JPanel panelMenu = new JPanel(new GridLayout(5, 1, 50, 20));
 
