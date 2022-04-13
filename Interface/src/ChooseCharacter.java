@@ -46,7 +46,7 @@ public class ChooseCharacter  extends  JFrame{
 
         this.setBounds(200,200,400,560);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
+
 
         Container mainContainer = this.getContentPane();
         mainContainer.setLayout(new BorderLayout());

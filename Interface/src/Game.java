@@ -46,7 +46,6 @@ public class Game extends JFrame
         super("Tamagochi");
         this.setBounds(100,100,400,560);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
 
 
         Container mainContainer = this.getContentPane();
