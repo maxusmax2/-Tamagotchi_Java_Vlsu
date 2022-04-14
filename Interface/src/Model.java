@@ -6,7 +6,9 @@ import java.io.IOException;
 
 public class Model implements ActionListener {
 
-    int GAMESTEP = 1;
+    final int GAMESTEP = 10;
+    boolean startGameFlag = false;
+
     CharacterState state;
     Timer timer;
     Saver saver;
@@ -94,30 +96,35 @@ public class Model implements ActionListener {
 
     private void buttonContinueHandler(){
 
-        try {
-            saver.downloadGame();
+        if(startGameFlag == false) {
+            try {
+                saver.downloadGame();
+            } catch (IOException e) {
+
+            }
+
+            nowSave = saver.infoLastSave;
+            state = nowSave.saveProgressValues;
+
+            if (characterIsDeath()){
+                killCharacter();
+            }
+
+
+            int passed_minutes = (int) timer.getPeriodStartSave(nowSave.gameSaveDate);
+
+            randomMinusState(passed_minutes);
+
+            nowSave.saveProgressValues = state;
+            nowSave.gameSaveDate = timer.getDate();
+            saveGame();
+
+            int passedDay = (int) timer.getPeriodStartSave(nowSave.gameSaveDate, nowSave.gameStartDate) / 24 / 60;
+
+            gameWindow.changeScreen(nowSave, passedDay);
+
+            startGameFlag = true;
         }
-        catch (IOException e) {
-
-        }
-
-        nowSave = saver.infoLastSave;
-        state = nowSave.saveProgressValues;
-
-
-
-        int passed_minutes = (int) timer.getPeriodStartSave(nowSave.gameSaveDate);
-
-        randomMinusState(passed_minutes);
-
-        nowSave.saveProgressValues = state;
-        nowSave.gameSaveDate = timer.getDate();
-        saveGame();
-
-        int passedDay = (int) timer.getPeriodStartSave(nowSave.gameSaveDate,nowSave.gameStartDate)  /24 / 60;
-
-        gameWindow.changeScreen(nowSave,passedDay);
-
         mainMenuWindow.setVisible(false);
         gameWindow.setVisible(true);
     }
@@ -222,16 +229,16 @@ public class Model implements ActionListener {
         switch (randomIndicator)
         {
             case 1:
-                this.state.feedValue-=50;
+                this.state.feedValue-=2;
                 break;
             case 2:
-                this.state.playValue-=50;
+                this.state.playValue-=2;
                 break;
             case 3:
-                this.state.sleepValue-=50;
+                this.state.sleepValue-=2;
                 break;
             case 4:
-                this.state.cleanValue-=50;
+                this.state.cleanValue-=2;
                 break;
         }
     }
@@ -245,5 +252,20 @@ public class Model implements ActionListener {
         {
 
         }
+    }
+
+    private boolean characterIsDeath()
+    {
+        if (state.cleanValue <= 0 || state.sleepValue <= 0 || state.feedValue <= 0 || state.playValue <= 0 ){
+            return true;
+        }
+        return false;
+    }
+    private void killCharacter (){
+        state.playValue = 0;
+        state.feedValue = 0;
+        state.sleepValue = 0;
+        state.cleanValue = 0;
+        gameWindow.killCharacter();
     }
 }

@@ -207,5 +207,24 @@ public class Game extends JFrame
         labelDaysOfLife.setFont(new Font("Arial", Font.PLAIN, 16));
         panelFooter.add(labelDaysOfLife);
     }
+    public void killCharacter(){
+
+        this.progressBarFeed.setValue(0);
+        this.progressBarPlay.setValue(0);
+        this.progressBarSleep.setValue(0);
+        this.progressBarClean.setValue(0);
+
+        try {
+            panelImage.remove(labelImg);
+            characterImage = ImageIO.read(new File("../Images/death_character1.png"));
+            Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
+            iconCharacter = new ImageIcon(image);
+            labelImg = new JLabel(iconCharacter);
+            panelImage.add(labelImg);
+        }
+        catch (IOException e){
+
+        }
+    }
 
 }
