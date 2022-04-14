@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class Game extends JFrame
 {
-    public BufferedImage characterImage = ImageIO.read(new File("../Images/CH1_funny.jpg"));
-    Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
+    BufferedImage bufferedImage = ImageIO.read(new File("../Images/CH1_funny.jpg"));
+    Image image = bufferedImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
     ImageIcon iconCharacter = new ImageIcon(image);
 
     JLabel labelImg = new JLabel(iconCharacter);
@@ -149,63 +149,4 @@ public class Game extends JFrame
         labelDaysOfLife.setFont(new Font("Arial", Font.PLAIN, 16));
 
     }
-    public void changeScreen(Save saveParameter, int day){
-
-        this.progressBarFeed.setValue(saveParameter.saveProgressValues.feedValue);
-        this.progressBarPlay.setValue(saveParameter.saveProgressValues.playValue);
-        this.progressBarSleep.setValue(saveParameter.saveProgressValues.sleepValue);
-        this.progressBarClean.setValue(saveParameter.saveProgressValues.cleanValue);
-        this.changeCharacterName(saveParameter.characterName);
-        changeDay(day);
-        if(saveParameter.characterName.equals("Зелебоба")){
-            this.changeOnChararacterTwo();
-        }
-        else{
-            this.changeOnChararacterOne();
-        }
-
-
-
-    }
-
-    public void changeOnChararacterOne(){
-        try {
-            panelImage.remove(labelImg);
-            characterImage = ImageIO.read(new File("../Images/CH1_funny.jpg"));
-            Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
-            iconCharacter = new ImageIcon(image);
-            labelImg = new JLabel(iconCharacter);
-            panelImage.add(labelImg);
-        }
-        catch (IOException e){
-
-        }
-
-    }
-    public void changeOnChararacterTwo() {
-        try {
-            panelImage.remove(labelImg);
-            characterImage = ImageIO.read(new File("../Images/CH2_funny.jpg"));
-            Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
-            iconCharacter = new ImageIcon(image);
-            labelImg = new JLabel(iconCharacter);
-            panelImage.add(labelImg);
-        }
-        catch (IOException e){
-
-        }
-    }
-    public void changeCharacterName(String name) {
-        panelNameLabel.remove(labelNameCharacter);
-        labelNameCharacter = new JLabel(name);
-        panelNameLabel.add(labelNameCharacter);
-        labelNameCharacter.setFont(new Font("Arial", Font.PLAIN, 25));
-    }
-    public void changeDay(int day){
-        panelFooter.remove(labelDaysOfLife);
-        labelDaysOfLife = new JLabel("day: " + day);
-        labelDaysOfLife.setFont(new Font("Arial", Font.PLAIN, 16));
-        panelFooter.add(labelDaysOfLife);
-    }
-
 }

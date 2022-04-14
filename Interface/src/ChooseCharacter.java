@@ -17,7 +17,7 @@ public class ChooseCharacter  extends  JFrame{
     private JLabel newGameLabel = new JLabel("  NEW GAME                     ");
 
 
-    public BufferedImage bufImg1 =  ImageIO.read(new File("../Images/Prozrachny_Vesely_kopia.png"));
+    private BufferedImage bufImg1 =  ImageIO.read(new File("../Images/Prozrachny_Vesely_kopia.png"));
     private Image characterOneImage = bufImg1.getScaledInstance(180,180, Image.SCALE_DEFAULT);
     private ImageIcon characterOneIcon = new ImageIcon(characterOneImage);
     private JLabel  characterOneLabelImage = new JLabel(characterOneIcon);
