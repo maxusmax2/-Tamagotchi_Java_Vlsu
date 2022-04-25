@@ -1,7 +1,7 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Timer {
+public class TimerMaster {
 
     public long getPeriodStartSave(LocalDateTime gameSaveDate,LocalDateTime gameStartDate){
         LocalDateTime dateSave = gameSaveDate;

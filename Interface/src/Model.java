@@ -3,6 +3,11 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+
+interface MethodForSheduledTask{
+    int doSomething();
+}
 
 public class Model implements ActionListener {
 
@@ -10,9 +15,13 @@ public class Model implements ActionListener {
     boolean startGameFlag = false;
 
     CharacterState state;
-    Timer timer;
+    MethodForSheduledTask doS = ()->state.sleepValue-=2;
+    TimerMaster timer;
     Saver saver;
     Save nowSave;
+
+    Timer time = new Timer();
+    ScheduledTask st = new ScheduledTask(doS);
 
     Game gameWindow;
     MainMenu mainMenuWindow;
@@ -20,8 +29,10 @@ public class Model implements ActionListener {
 
     public Model() throws IOException {
 
+
+
         state = new CharacterState();
-        timer = new Timer();
+        timer = new TimerMaster();
         saver = new Saver();
         nowSave = new Save();
 
@@ -48,9 +59,9 @@ public class Model implements ActionListener {
 
     }
 
-    public void startGame()
-    {
+    public void startGame() {
         mainMenuWindow.setVisible(true);
+        time.schedule(st, 0, 1000);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -146,8 +157,6 @@ public class Model implements ActionListener {
 
         chooseCharacterWindow.setVisible(false);
         gameWindow.setVisible(true);
-
-
     }
 
     private void buttonChooseCharacterTwoHandler(){
@@ -173,13 +182,11 @@ public class Model implements ActionListener {
     private void buttonSaveHandler(){
 
         if (nowSave.characterName != null){
-            try
-            {
+            try {
                 nowSave.gameSaveDate = timer.getDate();
                 saver.saveGame(nowSave);
             }
-            catch (IOException e)
-            {
+            catch (IOException e) {
 
             }
         }
@@ -223,7 +230,7 @@ public class Model implements ActionListener {
         }
     }
 
-    private void randomMinusState()
+    public void randomMinusState()
     {
         int randomIndicator = (int) (Math.random() * ((4 - 1) + 1)) + 1;
         switch (randomIndicator)
