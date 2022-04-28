@@ -8,9 +8,8 @@ public class ScheduledTask extends TimerTask {
     public ScheduledTask(MethodForSheduledTask method){
         m = method;
     }
-    @Override
     public void run() {
-        System.out.println(m.doSomething());
+        m.doSomething();
 
     }
 }

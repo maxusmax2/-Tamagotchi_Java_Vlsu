@@ -9,6 +9,7 @@ import java.io.IOException;
 public class Game extends JFrame
 {
     public BufferedImage characterImage = ImageIO.read(new File("../Images/CH1_funny.jpg"));
+    Container mainContainer = this.getContentPane();
     Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
     ImageIcon iconCharacter = new ImageIcon(image);
 
@@ -48,7 +49,7 @@ public class Game extends JFrame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        Container mainContainer = this.getContentPane();
+
         mainContainer.setLayout(new BorderLayout());
 
 
@@ -207,22 +208,142 @@ public class Game extends JFrame
         labelDaysOfLife.setFont(new Font("Arial", Font.PLAIN, 16));
         panelFooter.add(labelDaysOfLife);
     }
-    public void killCharacter(){
+    public void killCharacter(String nameCharacter){
 
         this.progressBarFeed.setValue(0);
         this.progressBarPlay.setValue(0);
         this.progressBarSleep.setValue(0);
         this.progressBarClean.setValue(0);
 
+        if (nameCharacter.equals("Хачапурик")) {
+            refreshImage("../Images/death_character1.png");
+        }
+        else{
+            refreshImage("../Images/death_character2.png");
+        }
+
+    }
+    public void changeImageByState(String nameCharacter, grudge state){
+        if (nameCharacter.equals("Хачапурик")) {
+            changeImageByStateCharacterOne(state);
+        }
+        else{
+            changeImageByStateCharacterTwo(state);
+        }
+    }
+    private void  changeImageByStateCharacterOne(grudge state){
+        switch (state){
+            case OK :
+                refreshImage("../Images/Hachapuric/ok.jpg");
+                break;
+            case HUNGRY :
+                refreshImage("../Images/Hachapuric/22.png");
+                break;
+            case DIRTY :
+                refreshImage("../Images/Hachapuric/23.png");
+                break;
+            case SLEEPY :
+                refreshImage("../Images/Hachapuric/20.png");
+                break;
+            case SAD :
+                refreshImage("../Images/Hachapuric/27.png");
+                break;
+            case HUNGRYDIRTY :
+                refreshImage("../Images/Hachapuric/26.png");
+                break;
+            case HUNGRYSLEEPY :
+                refreshImage("../Images/Hachapuric/21.png");
+                break;
+            case HUNGRYSAD :
+                refreshImage("../Images/Hachapuric/12.png");
+                break;
+            case HUNGRYDIRTYSLEEPY :
+                refreshImage("../Images/Hachapuric/25.png");
+                break;
+            case HUNGRYDIRTYSAD :
+                refreshImage("../Images/Hachapuric/19.png");
+                break;
+            case HUNGRYSLEEPYSAD :
+                refreshImage("../Images/Hachapuric/14.png");
+                break;
+            case DIRTYSLEEPY :
+                refreshImage("../Images/Hachapuric/26.png");
+                break;
+            case DIRTYSAD :
+                refreshImage("../Images/Hachapuric/13.png");
+                break;
+            case DIRTYSLEEPYSAD :
+                refreshImage("../Images/Hachapuric/17.png");
+                break;
+            case SLEEPYSAD :
+                refreshImage("../Images/Hachapuric/15.png");
+                break;
+        }
+    }
+
+    private void  changeImageByStateCharacterTwo(grudge state){
+        switch (state){
+            case OK :
+                refreshImage("../Images/Zeleboba/funnyZeleboba.png");
+                break;
+            case HUNGRY :
+                refreshImage("../Images/Zeleboba/feedZeleboba.png");
+                break;
+            case DIRTY :
+                refreshImage("../Images/Zeleboba/cleanfeedZeleboba.png");
+                break;
+            case SLEEPY :
+                refreshImage("../Images/Zeleboba/sleepZeleboba.png");
+                break;
+            case SAD :
+                refreshImage("../Images/Zeleboba/playZeleboba.png");
+                break;
+            case HUNGRYDIRTY :
+                refreshImage("../Images/Zeleboba/cleanfeedZeleboba.png");
+                break;
+            case HUNGRYSLEEPY :
+                refreshImage("../Images/Zeleboba/playsleepZeleboba.png");
+                break;
+            case HUNGRYSAD :
+                refreshImage("../Images/Zeleboba/playfeedZeleboba.png");
+                break;
+            case HUNGRYDIRTYSLEEPY :
+                refreshImage("../Images/Zeleboba/sleepcleanfeedZeleboba.png");
+                break;
+            case HUNGRYDIRTYSAD :
+                refreshImage("../Images/Zeleboba/playcleanfeedZeleboba.png");
+                break;
+            case HUNGRYSLEEPYSAD :
+                refreshImage("../Images/Zeleboba/sleepplayfeedZeleboba.png");
+                break;
+            case DIRTYSLEEPY :
+                refreshImage("../Images/Zeleboba/sleepcleanZeleboba.png");
+                break;
+            case DIRTYSAD :
+                refreshImage("../Images/Zeleboba/.playcleanZelebobapng");
+                break;
+            case DIRTYSLEEPYSAD :
+                refreshImage("../Images/Zeleboba/sleepcleanplayZeleboba.png");
+                break;
+            case SLEEPYSAD :
+                refreshImage("../Images/Zeleboba/sleepplayfeedZeleboba.png");
+                break;
+        }
+    }
+
+    private void refreshImage(String imageName) {
         try {
             panelImage.remove(labelImg);
-            characterImage = ImageIO.read(new File("../Images/death_character1.png"));
+            characterImage = ImageIO.read(new File(imageName));
             Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
             iconCharacter = new ImageIcon(image);
             labelImg = new JLabel(iconCharacter);
             panelImage.add(labelImg);
+            panelImage.repaint();
+            mainContainer.validate();
         }
-        catch (IOException e){
+        catch (IOException e)
+        {
 
         }
     }

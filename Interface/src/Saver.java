@@ -15,7 +15,7 @@ public class Saver {
         try {
             FileInputStream fis = new FileInputStream("gameInfo.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
-            infoLastSave=(Save) ois.readObject(); }
+            infoLastSave = (Save) ois.readObject(); }
         catch(ClassNotFoundException e) {
         }
     }
