@@ -1,7 +1,9 @@
+package main;
+
 import java.time.*;
 import java.io.Serializable;
 public class Save implements Serializable{
-    public Save (LocalDateTime gameStartDate, LocalDateTime gameSaveDate,String characterName,CharacterState saveProgressValues){
+    public Save (LocalDateTime gameStartDate, LocalDateTime gameSaveDate, String characterName, CharacterState saveProgressValues){
         this.gameStartDate = gameStartDate;
         this.gameSaveDate = gameSaveDate;
         this.characterName = characterName;
