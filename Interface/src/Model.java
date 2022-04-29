@@ -15,9 +15,9 @@ public class Model implements ActionListener {
 
     final int GAMESTEP = 10;
     final int OKPARAMETR = 30;
-    final int MINUSPROPERTYFORTICK = 1;
+    final int MINUSPROPERTYFORTICK = 8;
 
-    final int TICKFORMILISECONDS = 1000 * 10 * 60 ;
+    final int TICKFORMILISECONDS = 1 * 4 * 60 ;
     boolean startGameFlag = true;
     boolean gameContinue = true;
 
@@ -82,7 +82,9 @@ public class Model implements ActionListener {
             buttonNewGameHandler();
         }
         else if(pressedButton == mainMenuWindow.buttonContinue){
-            buttonContinueHandler();
+            if(gameContinue) {
+                buttonContinueHandler();
+            }
         }
         else if (pressedButton == mainMenuWindow.buttonSave) {
             buttonSaveHandler();
@@ -124,9 +126,10 @@ public class Model implements ActionListener {
         if(!startGameFlag && gameContinue) {
             randomMinusState();
 
-            reloadGrudge();
 
-            changeGuiWithNowInfo();
+            changeGuiWithNowInfoInTick();
+
+            changeGuiByGrudgeState();
 
             if (characterIsBad()) {
                 killCharacter();
@@ -146,8 +149,8 @@ public class Model implements ActionListener {
             reloadStateCharacter();
             saveGame();
             takeDataFromSave();
-            reloadGrudge();
 
+            changeGuiByGrudgeState();
             changeGuiWithNowInfo();
 
             if (characterIsBad()) {
@@ -162,22 +165,25 @@ public class Model implements ActionListener {
 
 
     private void buttonChooseCharacterOneHandler(){
-        if( !startGameFlag) {
-            fullParametrCharacter();
 
-            makeNewSave("Хачапурик");
+        fullParametrCharacter();
 
-            saveGame();
+        makeNewSave("Хачапурик");
 
-            reloadGrudge();
+        saveGame();
 
-            gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
+        reloadGrudge();
+        gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
 
-            gameWindow.changeScreen(nowSave, 0);
 
-            chooseCharacterWindow.setVisible(false);
-            gameWindow.setVisible(true);
-        }
+
+        gameWindow.changeScreen(nowSave, 0);
+
+        chooseCharacterWindow.setVisible(false);
+        gameWindow.setVisible(true);
+        startGameFlag = false;
+        gameContinue = true;
+
     }
 
     private void buttonChooseCharacterTwoHandler(){
@@ -188,14 +194,16 @@ public class Model implements ActionListener {
 
         saveGame();
 
-        reloadGrudge();
-        gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
-
+        if(reloadGrudge()) {
+            gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
+        }
         gameWindow.changeScreen(nowSave,0);
 
         chooseCharacterWindow.setVisible(false);
         gameWindow.setVisible(true);
 
+        startGameFlag = false;
+        gameContinue = true;
     }
 
     private void buttonSaveHandler(){
@@ -215,33 +223,29 @@ public class Model implements ActionListener {
         state.feedValue = 100;
         gameWindow.progressBarFeed.setValue(state.feedValue);
 
-        reloadGrudge();
-        gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
+        changeGuiByGrudgeState();
     }
 
     private void buttonPlayHandler(){
         state.playValue = 100;
         gameWindow.progressBarPlay.setValue(state.playValue);
 
-        reloadGrudge();
-        gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
-
+        changeGuiByGrudgeState();
     }
 
     private void buttonSleepHandler(){
         state.sleepValue = 100;
         gameWindow.progressBarSleep.setValue(state.sleepValue);
 
-        reloadGrudge();
-        gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
+        changeGuiByGrudgeState();
+
     }
 
     private void buttonCleanHandler(){
         state.cleanValue = 100;
         gameWindow.progressBarClean.setValue(state.cleanValue);
 
-        reloadGrudge();
-        gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
+        changeGuiByGrudgeState();
     }
 
     private void buttonMenuHandler(){
@@ -338,7 +342,11 @@ public class Model implements ActionListener {
         int passedDay = (int) timer.getPeriodStartSave(nowSave.gameSaveDate, nowSave.gameStartDate) / 24 / 60;
         gameWindow.changeScreen(nowSave, passedDay);
 
-        gameWindow.changeImageByState(nowSave.characterName,grudgeCharacter);
+
+    }
+    private void changeGuiWithNowInfoInTick(){
+        int passedDay = (int) timer.getPeriodStartSave(nowSave.gameSaveDate, nowSave.gameStartDate) / 24 / 60;
+        gameWindow.changeScreenInTick(nowSave, passedDay);
     }
 
     private void makeNewSave(String tamagochiName){
@@ -349,8 +357,8 @@ public class Model implements ActionListener {
         this.nowSave.characterName = tamagochiName;
     }
 
-    private void reloadGrudge(){
-
+    private boolean reloadGrudge(){
+        grudge pastGrudge = grudgeCharacter;
         if (state.cleanValue > OKPARAMETR && state.feedValue > OKPARAMETR && state.playValue > OKPARAMETR && state.sleepValue > OKPARAMETR) {
             grudgeCharacter = grudge.OK;
         } else if (state.cleanValue <= OKPARAMETR && state.feedValue > OKPARAMETR && state.playValue > OKPARAMETR && state.sleepValue > OKPARAMETR) {
@@ -381,6 +389,15 @@ public class Model implements ActionListener {
             grudgeCharacter = grudge.HUNGRYSLEEPYSAD;
         } else if (state.cleanValue > OKPARAMETR && state.feedValue > OKPARAMETR && state.playValue <= OKPARAMETR && state.sleepValue <= OKPARAMETR) {
             grudgeCharacter = grudge.SLEEPYSAD;
+        }
+        if (grudgeCharacter != pastGrudge){
+            return true;
+        }
+        return false;
+    }
+    private void changeGuiByGrudgeState(){
+        if(reloadGrudge()) {
+            gameWindow.changeImageByState(nowSave.characterName, grudgeCharacter);
         }
     }
 }

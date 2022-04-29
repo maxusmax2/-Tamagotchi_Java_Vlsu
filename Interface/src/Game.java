@@ -168,6 +168,15 @@ public class Game extends JFrame
 
 
     }
+    public void changeScreenInTick(Save saveParameter, int day){
+
+        this.progressBarFeed.setValue(saveParameter.saveProgressValues.feedValue);
+        this.progressBarPlay.setValue(saveParameter.saveProgressValues.playValue);
+        this.progressBarSleep.setValue(saveParameter.saveProgressValues.sleepValue);
+        this.progressBarClean.setValue(saveParameter.saveProgressValues.cleanValue);
+        this.changeCharacterName(saveParameter.characterName);
+        changeDay(day);
+    }
 
     public void changeOnChararacterOne(){
         try {
@@ -333,12 +342,14 @@ public class Game extends JFrame
 
     private void refreshImage(String imageName) {
         try {
-            panelImage.remove(labelImg);
             characterImage = ImageIO.read(new File(imageName));
             Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
             iconCharacter = new ImageIcon(image);
+            panelImage.remove(labelImg);
             labelImg = new JLabel(iconCharacter);
+
             panelImage.add(labelImg);
+
             panelImage.repaint();
             mainContainer.validate();
         }
