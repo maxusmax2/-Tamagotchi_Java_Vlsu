@@ -1,18 +1,34 @@
+<<<<<<< Updated upstream:Interface/src/main/MainMenu.java
 package main;
 
+=======
+<<<<<<< HEAD
+=======
+package main;
+
+>>>>>>> 0206880624bbd77a814cfa02faeea2fea94ba32d
+>>>>>>> Stashed changes:Interface/src/MainMenu.java
 import javax.swing.*;
 import java.awt.*;
 
+/** The class implements the main menu window of the game */
 public class MainMenu extends JFrame {
-
+    /** This is label - window name */
     private JLabel labelNameWindow = new JLabel("menu");
 
+    /** Button to start a new game*/
     public JButton buttonNewGame = new JButton("NEW GAME");
+    /** Button to continue the game */
     public JButton buttonContinue = new JButton("CONTINUE");
+    /** Button to save the game */
     public JButton buttonSave = new JButton("SAVE");
 
+    /** The panel that contains the menu */
     JPanel panelMenu = new JPanel(new GridLayout(5, 1, 50, 20));
 
+    /**
+     * The constructor of this class implements the label and 3 buttons in the window
+     */
     public MainMenu (){
         super("Tamagochi");
 

@@ -1,3 +1,9 @@
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.File;
+
 package main;
 
 import java.awt.event.*;
