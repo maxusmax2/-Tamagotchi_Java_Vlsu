@@ -1,13 +1,5 @@
-<<<<<<< Updated upstream:Interface/src/main/ChooseCharacter.java
 package main;
 
-=======
-<<<<<<< HEAD
-=======
-package main;
-
->>>>>>> 0206880624bbd77a814cfa02faeea2fea94ba32d
->>>>>>> Stashed changes:Interface/src/ChooseCharacter.java
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
