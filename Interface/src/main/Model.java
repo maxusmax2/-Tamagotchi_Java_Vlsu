@@ -1,7 +1,7 @@
 package main;
 
 import java.awt.event.*;
-.
+
 import java.io.IOException;
 import java.util.Timer;
 
