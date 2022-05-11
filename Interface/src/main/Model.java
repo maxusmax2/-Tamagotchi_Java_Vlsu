@@ -1,7 +1,20 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.File;
+=======
+>>>>>>> Stashed changes
 package main;
 
 import java.awt.event.*;
 .
+<<<<<<< Updated upstream
+=======
+>>>>>>> 0206880624bbd77a814cfa02faeea2fea94ba32d
+>>>>>>> Stashed changes
 import java.io.IOException;
 import java.util.Timer;
 
