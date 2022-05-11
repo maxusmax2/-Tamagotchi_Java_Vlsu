@@ -271,6 +271,9 @@ public class Game extends JFrame
             case HUNGRYDIRTYSLEEPY :
                 refreshImage("../Images/Hachapuric/25.png");
                 break;
+            case HUNGRYDIRTYSLEEPYSAD :
+                refreshImage("../Images/Hachapuric/16.png");
+                break;
             case HUNGRYDIRTYSAD :
                 refreshImage("../Images/Hachapuric/19.png");
                 break;
@@ -320,6 +323,9 @@ public class Game extends JFrame
                 break;
             case HUNGRYDIRTYSLEEPY :
                 refreshImage("../Images/Zeleboba/sleepcleanfeedZeleboba.png");
+                break;
+            case HUNGRYDIRTYSLEEPYSAD :
+                refreshImage("../Images/Zeleboba/feedcleanplaysleepZeleboba.png");
                 break;
             case HUNGRYDIRTYSAD :
                 refreshImage("../Images/Zeleboba/playcleanfeedZeleboba.png");
