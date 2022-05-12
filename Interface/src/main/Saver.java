@@ -1,10 +1,14 @@
 package main;
 
 import java.io.*;
-
+/**Auxiliary class responsible for working with files */
 public class Saver {
+    /** Variable storing the last uploaded save */
     public Save infoLastSave = new Save();
 
+    /** Saves data of Save to a file gameInfo.txt *
+     * @param
+     * @throws IOException*/
     public void saveGame (Save parametersOfSave) throws IOException {
 
         FileOutputStream fos = new FileOutputStream("gameInfo.txt");
@@ -12,6 +16,11 @@ public class Saver {
         oos.writeObject(parametersOfSave);
         oos.flush();
     }
+
+    /** Loads data from a file gameInfo.txt in InfoLastSave
+     * @param
+     * @throws IOException*/
+
     public void downloadGame () throws IOException {
         Object result = null;
         try {

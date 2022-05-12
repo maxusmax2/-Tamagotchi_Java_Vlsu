@@ -79,7 +79,7 @@ public class Model implements ActionListener {
         mainMenuWindow.setVisible(true);
         time.schedule(shedulerTask, 1000,TICKFORMILISECONDS);
     }
-
+    /** An Actionlistener interface method that handles GUI keystrokes */
     public void actionPerformed(ActionEvent e) {
 
         Object pressedButton = e.getSource();
@@ -132,7 +132,7 @@ public class Model implements ActionListener {
         mainMenuWindow.setVisible(false);
         chooseCharacterWindow.setVisible(true);
     }
-
+    /** The function handles pressing the continue button */
     private void buttonContinueHandler(){
 
         if(!startGameFlag) {
@@ -211,7 +211,7 @@ public class Model implements ActionListener {
         gameWindow.setVisible(false);
         mainMenuWindow.setVisible(true);
     }
-
+    /** A method that triggers after the time specified in the TICKFORMILISECONDS variable and reduces one of the states */
     private void shedulerTickHandler()
     {
 
@@ -248,7 +248,7 @@ public class Model implements ActionListener {
         gameContinue = true;
     }
 
-    private void fullParametrCharacter() {
+    protected void fullParametrCharacter() {
 
         this.state.feedValue = 100;
         this.state.playValue = 100;
@@ -256,14 +256,16 @@ public class Model implements ActionListener {
         this.state.cleanValue = 100;
     }
 
-    private void randomMinusState(int passed_minutes)
+    /** A function that calculates the change in the state of the character during the time passed outside the game */
+    protected void randomMinusState(int passed_minutes)
     {
         for (int i = 0; i < passed_minutes / GAMESTEP; i++){
             randomMinusState();
         }
     }
 
-    public void randomMinusState()
+    /** A function that reduces the random state of a character */
+    protected void randomMinusState()
     {
         int max = 4;
         int min = 1;
