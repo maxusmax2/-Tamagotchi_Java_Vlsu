@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SaverTest {
     main.Saver saver1 = new main.Saver();
 
-    Save save = new main.Save(LocalDateTime.now(),LocalDateTime.now(),"name",null);
+    Save save = new main.Save(LocalDateTime.now(),LocalDateTime.now(),"name", new main.CharacterState());
 
     @org.junit.jupiter.api.Test
     void saveGame() {

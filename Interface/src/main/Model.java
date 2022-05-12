@@ -273,16 +273,16 @@ public class Model implements ActionListener {
         switch (randomIndicator)
         {
             case 1:
-                this.state.feedValue -= MINUSPROPERTYFORTICK;
+                state.feedValue -= MINUSPROPERTYFORTICK;
                 break;
             case 2:
-                this.state.playValue -= MINUSPROPERTYFORTICK;
+                state.playValue -= MINUSPROPERTYFORTICK;
                 break;
             case 3:
-                this.state.sleepValue -= MINUSPROPERTYFORTICK;
+                state.sleepValue -= MINUSPROPERTYFORTICK;
                 break;
             case 4:
-                this.state.cleanValue -= MINUSPROPERTYFORTICK;
+                state.cleanValue -= MINUSPROPERTYFORTICK;
                 break;
         }
     }
