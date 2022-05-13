@@ -3,10 +3,8 @@ package test;
 import main.TimerMaster;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class TimerMasterTest {
     TimerMaster timer = new TimerMaster();

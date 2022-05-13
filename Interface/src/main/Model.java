@@ -1,13 +1,6 @@
 package main;
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.event.*;
-import java.io.File;
-
-
 
 import java.awt.event.*;
-
 import java.io.IOException;
 import java.util.Timer;
 

@@ -7,9 +7,6 @@ public class CharacterState implements Serializable{
     public int playValue;
     public int sleepValue;
     public int cleanValue;
-    public CharacterState()
-    {
-
+    public CharacterState() {
     }
-
 }

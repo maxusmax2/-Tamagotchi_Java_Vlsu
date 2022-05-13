@@ -2,11 +2,8 @@ package test;
 
 import main.Save;
 import org.junit.jupiter.api.Assertions;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SaverTest {
     main.Saver saver1 = new main.Saver();

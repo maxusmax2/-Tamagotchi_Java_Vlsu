@@ -1,11 +1,6 @@
-
 package main;
 
-
-
 import java.util.TimerTask;
-
-
 
 public class ScheduledTask extends TimerTask {
     MethodForSheduledTask m;
