@@ -7,7 +7,7 @@ public class Saver {
     public Save infoLastSave = new Save();
 
     /** Saves data of Save to a file gameInfo.txt *
-     * @param
+     * @param  parametersOfSave
      * @throws IOException*/
     public void saveGame (Save parametersOfSave) throws IOException {
 
@@ -28,6 +28,7 @@ public class Saver {
             ObjectInputStream ois = new ObjectInputStream(fis);
             infoLastSave = (Save) ois.readObject(); }
         catch(ClassNotFoundException e) {
+            System.out.println("File save not found" + e);
         }
     }
 }

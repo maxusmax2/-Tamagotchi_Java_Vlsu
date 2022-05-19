@@ -1,14 +1,13 @@
 package main;
 
 import java.util.TimerTask;
-
+/** Auxiliary class that implements the logic of multiple execution of a function after a certain period */
 public class ScheduledTask extends TimerTask {
-    MethodForSheduledTask m;
-    public ScheduledTask(MethodForSheduledTask method){
-        m = method;
+    MethodForSheduledTask method;
+    public ScheduledTask(MethodForSheduledTask methodForSheduler) {
+        method = methodForSheduler;
     }
     public void run() {
-        m.doSomething();
-
+        method.doSomething();
     }
 }

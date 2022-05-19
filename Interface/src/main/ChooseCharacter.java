@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 /** This class implements a character selection menu */
-public class ChooseCharacter  extends  JFrame{
+public class ChooseCharacter  extends  JFrame {
 
     /** Character selection button 1 - HACHAPURIK */
     public JButton chooseCharacterOneBtn = new JButton("HACHAPURIK");
@@ -64,8 +64,7 @@ public class ChooseCharacter  extends  JFrame{
      * The constructor of the character selection class adds all the elements to the window
      * @throws IOException if an error occurs when calling the new game window
      */
-    public ChooseCharacter() throws IOException
-    {
+    public ChooseCharacter() throws IOException {
         super("Tamagochi");
 
         this.setBounds(200,200,400,560);

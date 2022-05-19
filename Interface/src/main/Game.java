@@ -6,45 +6,60 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-
-public class Game extends JFrame
-{
+/** A graphical interface that includes controls for the game logic itself  */
+public class Game extends JFrame {
+    /** image  of  Tamagochi character*/
     public BufferedImage characterImage = ImageIO.read(new File("../Images/CH1_funny.jpg"));
     Container mainContainer = this.getContentPane();
     Image image = characterImage.getScaledInstance(280, 280, Image.SCALE_DEFAULT);
     ImageIcon iconCharacter = new ImageIcon(image);
 
     JLabel labelImg = new JLabel(iconCharacter);
+    /** name of character */
     JLabel labelNameCharacter = new JLabel("Hachapuric");
+    /** label show days later*/
     JLabel labelDaysOfLife = new JLabel("day:");
 
-
+    /** ProgressBar show feed state */
     JProgressBar progressBarFeed = new JProgressBar();
+    /** ProgressBar show play state */
     JProgressBar progressBarPlay = new JProgressBar();
+    /** ProgressBar show sleep state */
     JProgressBar progressBarSleep = new JProgressBar();
+    /** ProgressBar show clean state */
     JProgressBar progressBarClean = new JProgressBar();
 
+    /** buttons of  caring for feed */
     JButton buttonFeed = new JButton("feed");
+    /** buttons of  caring for  play */
     JButton buttonPlay = new JButton("play");
+    /** buttons of  caring for  sleep */
     JButton buttonSleep = new JButton("sleep");
+    /** buttons of  caring for clean */
     JButton buttonClean = new JButton("clean");
+    /** button back to menu */
     JButton buttonMenu = new JButton("menu");
 
-
+    /** panel include of Tamagochi image*/
     JPanel panelImage = new JPanel(new GridLayout(1,1));
-
+    /** panel include of name character */
     JPanel panelNameLabel = new JPanel(new FlowLayout());
 
+    /** panel consist of progressBar and button of feed state*/
     JPanel panelFeed = new JPanel(new FlowLayout());
+    /** panel consist of progressBar and button of play state*/
     JPanel panelPlay = new JPanel(new FlowLayout());
+    /** panel consist of progressBar and button of sleep state*/
     JPanel panelSleep = new JPanel(new FlowLayout());
+    /** panel consist of progressBar and button of clean state*/
     JPanel panelClean = new JPanel(new FlowLayout());
-
+    /** panel include menu button*/
     JPanel panelFooter = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-    JPanel panelCharacteristics =new JPanel(new GridLayout(5,1));
+    /** panel consist of panel state and name character*/
+    JPanel panelCharacteristics = new JPanel(new GridLayout(5,1));
 
+    /** GUI constructor*/
     public Game() throws IOException {
         super("Tamagochi");
         this.setBounds(100,100,400,560);
@@ -152,7 +167,8 @@ public class Game extends JFrame
         labelDaysOfLife.setFont(new Font("Arial", Font.PLAIN, 16));
 
     }
-    public void changeScreen(Save saveParameter, int day){
+    /** function change progressBar counter day and image character  looking for save data  */
+    public void changeScreen(Save saveParameter, int day) {
 
         this.progressBarFeed.setValue(saveParameter.saveProgressValues.feedValue);
         this.progressBarPlay.setValue(saveParameter.saveProgressValues.playValue);
@@ -163,14 +179,12 @@ public class Game extends JFrame
         if(saveParameter.characterName.equals("Зелебоба")){
             this.changeOnChararacterTwo();
         }
-        else{
+        else {
             this.changeOnChararacterOne();
         }
-
-
-
     }
-    public void changeScreenInTick(Save saveParameter, int day){
+    /** function change progressBar counter day  looking for save data  */
+    public void changeScreenInTick(Save saveParameter, int day) {
 
         this.progressBarFeed.setValue(saveParameter.saveProgressValues.feedValue);
         this.progressBarPlay.setValue(saveParameter.saveProgressValues.playValue);
@@ -179,8 +193,8 @@ public class Game extends JFrame
         this.changeCharacterName(saveParameter.characterName);
         changeDay(day);
     }
-
-    public void changeOnChararacterOne(){
+    /** function download image for character one  */
+    public void changeOnChararacterOne() {
         try {
             panelImage.remove(labelImg);
             characterImage = ImageIO.read(new File("../Images/CH1_funny.jpg"));
@@ -190,10 +204,11 @@ public class Game extends JFrame
             panelImage.add(labelImg);
         }
         catch (IOException e){
-
+            System.out.println(" not found file");
         }
 
     }
+    /** function download image for character two  */
     public void changeOnChararacterTwo() {
         try {
             panelImage.remove(labelImg);
@@ -204,22 +219,25 @@ public class Game extends JFrame
             panelImage.add(labelImg);
         }
         catch (IOException e){
-
+            System.out.println(" not found file");
         }
     }
+    /** function show character name on GUI */
     public void changeCharacterName(String name) {
         panelNameLabel.remove(labelNameCharacter);
         labelNameCharacter = new JLabel(name);
         panelNameLabel.add(labelNameCharacter);
         labelNameCharacter.setFont(new Font("Arial", Font.PLAIN, 25));
     }
-    public void changeDay(int day){
+    /** function show day later on GUI */
+    public void changeDay(int day) {
         panelFooter.remove(labelDaysOfLife);
         labelDaysOfLife = new JLabel("day: " + day);
         labelDaysOfLife.setFont(new Font("Arial", Font.PLAIN, 16));
         panelFooter.add(labelDaysOfLife);
     }
-    public void killCharacter(String nameCharacter){
+    /** function show death character on GUI */
+    public void killCharacter(String nameCharacter) {
 
         this.progressBarFeed.setValue(0);
         this.progressBarPlay.setValue(0);
@@ -232,9 +250,9 @@ public class Game extends JFrame
         else{
             refreshImage("../Images/death_character2.png");
         }
-
     }
-    public void changeImageByState(String nameCharacter, grudge state){
+    /** function refresh image looking for state character */
+    public void changeImageByState(String nameCharacter, grudge state) {
         if (nameCharacter.equals("Хачапурик")) {
             changeImageByStateCharacterOne(state);
         }
@@ -242,7 +260,8 @@ public class Game extends JFrame
             changeImageByStateCharacterTwo(state);
         }
     }
-    private void  changeImageByStateCharacterOne(grudge state){
+    /** function refresh image looking for state character  one*/
+    private void  changeImageByStateCharacterOne(grudge state) {
         switch (state){
             case OK :
                 refreshImage("../Images/Hachapuric/ok.jpg");
@@ -294,7 +313,7 @@ public class Game extends JFrame
                 break;
         }
     }
-
+    /** function refresh image looking for state character  two*/
     private void  changeImageByStateCharacterTwo(grudge state){
         switch (state){
             case OK :
@@ -348,6 +367,7 @@ public class Game extends JFrame
         }
     }
 
+    /** function download image and show on GUI*/
     private void refreshImage(String imageName) {
         try {
             characterImage = ImageIO.read(new File(imageName));
@@ -363,7 +383,7 @@ public class Game extends JFrame
         }
         catch (IOException e)
         {
-
+            System.out.println(" not found file");
         }
     }
 

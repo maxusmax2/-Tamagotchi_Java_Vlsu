@@ -15,13 +15,12 @@ class TimerMasterTest {
 
     @Test
     void testGetPeriodStartSave() {
-        Assertions.assertEquals(timer.getPeriodStartSave(LocalDateTime.now(),LocalDateTime.now()),0);
-
+        LocalDateTime localdate = LocalDateTime.now();
+        Assertions.assertEquals(timer.getPeriodStartSave(localdate,localdate),0);
     }
 
     @Test
     void getDate() {
-
-        Assertions.assertEquals(LocalDateTime.now(),timer.getDate());
+        Assertions.assertEquals(LocalDateTime.now(), timer.getDate());
     }
 }

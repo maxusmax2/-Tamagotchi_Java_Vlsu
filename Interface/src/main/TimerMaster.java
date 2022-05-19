@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public class TimerMaster {
     /** The function is used to get the minutes passed with between two dates of the start of the game and the last save*/
-    public long getPeriodStartSave(LocalDateTime gameSaveDate,LocalDateTime gameStartDate){
+    public long getPeriodStartSave(LocalDateTime gameSaveDate,LocalDateTime gameStartDate) {
         LocalDateTime dateSave = gameSaveDate;
         LocalDateTime dateNow = gameStartDate;
         Duration differenceDate = Duration.between(dateNow,dateSave);
@@ -13,7 +13,7 @@ public class TimerMaster {
         return minutes;
     }
     /** The function is used to get the minutes passed since the last save */
-    public long getPeriodStartSave(LocalDateTime gameSaveDate){
+    public long getPeriodStartSave(LocalDateTime gameSaveDate) {
         LocalDateTime dateSave = gameSaveDate;
         LocalDateTime dateNow = getDate();
         Duration differenceDate = Duration.between(dateNow,dateSave);

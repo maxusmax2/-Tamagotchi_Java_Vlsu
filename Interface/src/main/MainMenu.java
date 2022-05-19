@@ -21,7 +21,7 @@ public class MainMenu extends JFrame {
     /**
      * The constructor of this class implements the label and 3 buttons in the window
      */
-    public MainMenu (){
+    public MainMenu () {
         super("Tamagochi");
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
