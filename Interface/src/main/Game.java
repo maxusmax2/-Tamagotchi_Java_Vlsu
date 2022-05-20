@@ -269,109 +269,109 @@ public class Game extends JFrame {
             changeImageByStateCharacterTwo(state);
         }
     }
-    /** function refresh image looking for state character  one*/
+    /** function refresh image looking for state character one*/
     private void  changeImageByStateCharacterOne(grudge state) {
         switch (state){
             case OK :
-                refreshImage("../Images/Hachapuric/ok.jpg");
+                refreshImage("../Images/Hachapuric/OK.jpg");
                 break;
             case HUNGRY :
-                refreshImage("../Images/Hachapuric/22.png");
+                refreshImage("../Images/Hachapuric/HUNGRY.png");
                 break;
             case DIRTY :
-                refreshImage("../Images/Hachapuric/23.png");
+                refreshImage("../Images/Hachapuric/DIRTY.png");
                 break;
             case SLEEPY :
-                refreshImage("../Images/Hachapuric/20.png");
+                refreshImage("../Images/Hachapuric/SLEEPY.png");
                 break;
             case SAD :
-                refreshImage("../Images/Hachapuric/27.png");
+                refreshImage("../Images/Hachapuric/SAD.png");
                 break;
             case HUNGRYDIRTY :
-                refreshImage("../Images/Hachapuric/26.png");
+                refreshImage("../Images/Hachapuric/HUNGRYDIRTY.png");
                 break;
             case HUNGRYSLEEPY :
-                refreshImage("../Images/Hachapuric/21.png");
+                refreshImage("../Images/Hachapuric/HUNGRYSLEEPY.png");
                 break;
             case HUNGRYSAD :
-                refreshImage("../Images/Hachapuric/12.png");
+                refreshImage("../Images/Hachapuric/HUNGRYSAD.png");
                 break;
             case HUNGRYDIRTYSLEEPY :
-                refreshImage("../Images/Hachapuric/25.png");
+                refreshImage("../Images/Hachapuric/HUNGRYDIRTYSLEEPY.png");
                 break;
             case HUNGRYDIRTYSLEEPYSAD :
-                refreshImage("../Images/Hachapuric/16.png");
+                refreshImage("../Images/Hachapuric/HUNGRYDIRTYSLEEPYSAD.png");
                 break;
             case HUNGRYDIRTYSAD :
-                refreshImage("../Images/Hachapuric/19.png");
+                refreshImage("../Images/Hachapuric/HUNGRYDIRTYSAD.png");
                 break;
             case HUNGRYSLEEPYSAD :
-                refreshImage("../Images/Hachapuric/14.png");
+                refreshImage("../Images/Hachapuric/HUNGRYSLEEPYSAD.png");
                 break;
             case DIRTYSLEEPY :
-                refreshImage("../Images/Hachapuric/26.png");
+                refreshImage("../Images/Hachapuric/DIRTYSLEEPY.png");
                 break;
             case DIRTYSAD :
-                refreshImage("../Images/Hachapuric/13.png");
+                refreshImage("../Images/Hachapuric/DIRTYSAD.png");
                 break;
             case DIRTYSLEEPYSAD :
-                refreshImage("../Images/Hachapuric/17.png");
+                refreshImage("../Images/Hachapuric/DIRTYSLEEPYSAD.png");
                 break;
             case SLEEPYSAD :
-                refreshImage("../Images/Hachapuric/15.png");
+                refreshImage("../Images/Hachapuric/SLEEPYSAD.png");
                 break;
         }
     }
-    /** function refresh image looking for state character  two*/
+    /** function refresh image looking for state character two*/
     private void  changeImageByStateCharacterTwo(grudge state){
         switch (state){
             case OK :
-                refreshImage("../Images/Zeleboba/funnyZeleboba.png");
+                refreshImage("../Images/Zeleboba/OK.png");
                 break;
             case HUNGRY :
-                refreshImage("../Images/Zeleboba/feedZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRY.png");
                 break;
             case DIRTY :
-                refreshImage("../Images/Zeleboba/cleanfeedZeleboba.png");
+                refreshImage("../Images/Zeleboba/DIRTY.png");
                 break;
             case SLEEPY :
-                refreshImage("../Images/Zeleboba/sleepZeleboba.png");
+                refreshImage("../Images/Zeleboba/SLEEPY.png");
                 break;
             case SAD :
-                refreshImage("../Images/Zeleboba/playZeleboba.png");
+                refreshImage("../Images/Zeleboba/SAD.png");
                 break;
             case HUNGRYDIRTY :
-                refreshImage("../Images/Zeleboba/cleanfeedZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRYDIRTY.png");
                 break;
             case HUNGRYSLEEPY :
-                refreshImage("../Images/Zeleboba/playsleepZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRYSLEEPY.png");
                 break;
             case HUNGRYSAD :
-                refreshImage("../Images/Zeleboba/playfeedZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRYSAD.png");
                 break;
             case HUNGRYDIRTYSLEEPY :
-                refreshImage("../Images/Zeleboba/sleepcleanfeedZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRYDIRTYSLEEPY.png");
                 break;
             case HUNGRYDIRTYSLEEPYSAD :
-                refreshImage("../Images/Zeleboba/feedcleanplaysleepZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRYDIRTYSLEEPYSAD.png");
                 break;
             case HUNGRYDIRTYSAD :
-                refreshImage("../Images/Zeleboba/playcleanfeedZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRYDIRTYSAD.png");
                 break;
             case HUNGRYSLEEPYSAD :
-                refreshImage("../Images/Zeleboba/sleepplayfeedZeleboba.png");
+                refreshImage("../Images/Zeleboba/HUNGRYSLEEPYSAD.png");
                 break;
             case DIRTYSLEEPY :
-                refreshImage("../Images/Zeleboba/sleepcleanZeleboba.png");
+                refreshImage("../Images/Zeleboba/DIRTYSLEEPY.png");
                 break;
             case DIRTYSAD :
-                refreshImage("../Images/Zeleboba/.playcleanZelebobapng");
+                refreshImage("../Images/Zeleboba/.DIRTYSAD.png");
                 break;
             case DIRTYSLEEPYSAD :
-                refreshImage("../Images/Zeleboba/sleepcleanplayZeleboba.png");
+                refreshImage("../Images/Zeleboba/DIRTYSLEEPYSAD.png");
                 break;
             case SLEEPYSAD :
-                refreshImage("../Images/Zeleboba/sleepplayfeedZeleboba.png");
+                refreshImage("../Images/Zeleboba/SLEEPYSAD.png");
                 break;
         }
     }

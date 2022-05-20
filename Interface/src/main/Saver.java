@@ -28,7 +28,7 @@ public class Saver {
             ObjectInputStream ois = new ObjectInputStream(fis);
             infoLastSave = (Save) ois.readObject(); }
         catch(ClassNotFoundException e) {
-            System.out.println("File save not found" + e);
+            System.out.println("File save not found " + e);
         }
     }
 }
