@@ -8,6 +8,16 @@ import java.io.File;
 import java.io.IOException;
 /** A graphical interface that includes controls for the game logic itself  */
 public class Game extends JFrame {
+
+    /** application window width in pixels*/
+    final int WIDTH = 400;
+    /** application window height in pixels*/
+    final int HEIGHT = 560;
+    /** the x-coordinate of the location of the window on the screen*/
+    final int X = (Toolkit.getDefaultToolkit().getScreenSize().width - WIDTH) / 2;
+    /** the y-coordinate of the location of the window on the screen*/
+    final int Y = (Toolkit.getDefaultToolkit().getScreenSize().height - HEIGHT ) / 2;
+
     /** image  of  Tamagochi character*/
     public BufferedImage characterImage = ImageIO.read(new File("../Images/CH1_funny.jpg"));
     Container mainContainer = this.getContentPane();
@@ -62,13 +72,12 @@ public class Game extends JFrame {
     /** GUI constructor*/
     public Game() throws IOException {
         super("Tamagochi");
-        this.setBounds(100,100,400,560);
+
+        this.setBounds(X,Y,WIDTH,HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
+        this.setResizable(false);
 
         mainContainer.setLayout(new BorderLayout());
-
 
         mainContainer.add(panelImage, BorderLayout.NORTH);
         panelImage.setBackground(new Color(248, 252, 116));

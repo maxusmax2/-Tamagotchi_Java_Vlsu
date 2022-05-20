@@ -5,6 +5,16 @@ import java.awt.*;
 
 /** The class implements the main menu window of the game */
 public class MainMenu extends JFrame {
+
+    /** application window width in pixels*/
+    final int WIDTH = 400;
+    /** application window height in pixels*/
+    final int HEIGHT = 560;
+    /** the x-coordinate of the location of the window on the screen*/
+    final int X = (Toolkit.getDefaultToolkit().getScreenSize().width - WIDTH) / 2;
+    /** the y-coordinate of the location of the window on the screen*/
+    final int Y = (Toolkit.getDefaultToolkit().getScreenSize().height - HEIGHT) / 2;
+
     /** This is label - window name */
     private JLabel labelNameWindow = new JLabel("menu");
 
@@ -25,7 +35,8 @@ public class MainMenu extends JFrame {
         super("Tamagochi");
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setBounds(100,100,400,560);
+        this.setBounds(X,Y,WIDTH,HEIGHT);
+        this.setResizable(false);
 
         Container containerMenu = this.getContentPane();
         containerMenu.setLayout(new BorderLayout(40,80));

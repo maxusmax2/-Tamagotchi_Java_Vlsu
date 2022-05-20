@@ -11,6 +11,15 @@ import java.io.IOException;
 /** This class implements a character selection menu */
 public class ChooseCharacter  extends  JFrame {
 
+    /** application window width in pixels*/
+    final int WIDTH = 400;
+    /** application window height in pixels*/
+    final int HEIGHT = 560;
+    /** the x-coordinate of the location of the window on the screen*/
+    final int X = (Toolkit.getDefaultToolkit().getScreenSize().width - WIDTH) / 2;
+    /** the y-coordinate of the location of the window on the screen*/
+    final int Y = (Toolkit.getDefaultToolkit().getScreenSize().height - HEIGHT) / 2;
+
     /** Character selection button 1 - HACHAPURIK */
     public JButton chooseCharacterOneBtn = new JButton("HACHAPURIK");
     /** Character selection button 2 - ZELEBOBA */
@@ -67,9 +76,9 @@ public class ChooseCharacter  extends  JFrame {
     public ChooseCharacter() throws IOException {
         super("Tamagochi");
 
-        this.setBounds(200,200,400,560);
+        this.setBounds(X,Y,WIDTH,HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        this.setResizable(false);
 
         Container mainContainer = this.getContentPane();
         mainContainer.setLayout(new BorderLayout());
