@@ -12,27 +12,16 @@ class SaverTest {
     Save save = new main.Save(LocalDateTime.now(),LocalDateTime.now(),"name", new main.CharacterState());
 
     @Test
-    void saveGame() {
-        try {
-            saver1.saveGame(save);
-            saver1.downloadGame();
-            Assertions.assertNotEquals(save, saver1.infoLastSave);
-        }
-        catch (IOException e) {
-            Assertions.fail();
-        }
-
+    void saveGame() throws IOException{
+        saver1.saveGame(save);
+        saver1.downloadGame();
+        Assertions.assertNotEquals(save, saver1.infoLastSave);
     }
 
     @Test
-    void downloadGame() {
-        try {
-            saver1.saveGame(save);
-            saver1.downloadGame();
-            Assertions.assertNotEquals(null, saver1.infoLastSave);
-        }
-        catch (IOException e) {
-            Assertions.fail();
-        }
+    void downloadGame() throws IOException{
+        saver1.saveGame(save);
+        saver1.downloadGame();
+        Assertions.assertNotEquals(null, saver1.infoLastSave);
     }
 }
